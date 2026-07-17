@@ -1,7 +1,6 @@
 let workoutFlow = [];
 let currentStep = 0;
 let timerId = null;
-let stepDuration = 30;
 let remaining = 0;
 
 function showScreen(id) {
@@ -64,50 +63,26 @@ function playBeep() {
 function startWorkout() {
     initFlow();
     currentStep = 0;
-    nextStep();
+    workoutDisplay.innerText = workoutFlow[currentStep];
+    updateProgress();
 }
 
 function nextStep() {
+    playBeep();
+
+    currentStep++;
     if (currentStep >= workoutFlow.length) {
         workoutDisplay.innerText = "Workout Complete!";
         updateProgress();
-        stopTimer();
         return;
     }
 
     workoutDisplay.innerText = workoutFlow[currentStep];
-    currentStep++;
     updateProgress();
-    startTimer(stepDuration, nextStep);
-}
-
-function startTimer(seconds, callback) {
-    stopTimer();
-    remaining = seconds;
-    updateTimerText();
-    timerId = setInterval(() => {
-        remaining--;
-        updateTimerText();
-        if (remaining <= 0) {
-            playBeep();
-            stopTimer();
-            callback();
-        }
-    }, 1000);
-}
-
-function stopTimer() {
-    if (timerId) clearInterval(timerId);
-    timerId = null;
 }
 
 function stopWorkout() {
-    stopTimer();
     workoutDisplay.innerText = "Workout stopped.";
-}
-
-function updateTimerText() {
-    timerText.innerText = `Timer: ${remaining.toString().padStart(2, '0')}`;
 }
 
 window.onload = () => {
