@@ -1,77 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kettlebell + Treadmill Workout</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+body {
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
 
-<body>
-    <header>
-        <h1>Kettlebell + Treadmill Workout</h1>
-        <nav>
-            <button onclick="showScreen('home')">Home</button>
-            <button onclick="showScreen('weights')">My Weights</button>
-            <button onclick="showScreen('library')">Exercise Videos</button>
-            <button onclick="showScreen('workout')">Start Workout</button>
-        </nav>
-    </header>
+header {
+    background: #000;
+    padding: 15px;
+    text-align: center;
+}
 
-    <!-- HOME -->
-    <section id="home" class="screen active">
-        <h2>Welcome Jay</h2>
-        <p>Your kettlebell + treadmill workout app is ready.</p>
-    </section>
+nav button {
+    margin: 5px;
+    padding: 10px 15px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
 
-    <!-- WEIGHTS -->
-    <section id="weights" class="screen">
-        <h2>My Kettlebell Weights</h2>
+.screen {
+    display: none;
+    padding: 20px;
+}
 
-        <div class="weight-input"><label>Swings</label><input id="w_swings" type="number"></div>
-        <div class="weight-input"><label>Goblet Squat</label><input id="w_goblet" type="number"></div>
-        <div class="weight-input"><label>Rows</label><input id="w_rows" type="number"></div>
-        <div class="weight-input"><label>High Pulls</label><input id="w_highpull" type="number"></div>
-        <div class="weight-input"><label>March/Carry</label><input id="w_march" type="number"></div>
+.screen.active {
+    display: block;
+}
 
-        <button onclick="saveWeights()">Save</button>
-        <p id="saveMsg"></p>
-    </section>
+.weight-input {
+    margin-bottom: 15px;
+}
 
-    <!-- EXERCISE LIBRARY -->
-    <section id="library" class="screen">
-        <h2>Exercise Library</h2>
+input {
+    padding: 8px;
+    width: 80px;
+}
 
-        <div class="video-block"><h3>Kettlebell Swings</h3><video controls src="videos/swings.mp4"></video></div>
-        <div class="video-block"><h3>Goblet Squat</h3><video controls src="videos/goblet_squat.mp4"></video></div>
-        <div class="video-block"><h3>Kettlebell Row</h3><video controls src="videos/row.mp4"></video></div>
-        <div class="video-block"><h3>Kettlebell High Pull</h3><video controls src="videos/high_pull.mp4"></video></div>
-        <div class="video-block"><h3>Kettlebell March / Carry</h3><video controls src="videos/march.mp4"></video></div>
-        <div class="video-block"><h3>Dead Bug</h3><video controls src="videos/dead_bug.mp4"></video></div>
-        <div class="video-block"><h3>Plank</h3><video controls src="videos/plank.mp4"></video></div>
-        <div class="video-block"><h3>Kettlebell Crunch</h3><video controls src="videos/crunch.mp4"></video></div>
-    </section>
+video {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
 
-    <!-- WORKOUT -->
-    <section id="workout" class="screen">
-        <h2>Workout Flow</h2>
+button {
+    background: #28a745;
+    padding: 10px 20px;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    margin-top: 10px;
+}
 
-        <div class="progress-wrapper">
-            <div id="progressText">Step 0 / 0</div>
-            <div class="progress-bar"><div id="progressFill"></div></div>
-        </div>
+/* Progress bar */
+.progress-wrapper {
+    margin-bottom: 15px;
+}
 
-        <div id="workoutDisplay"></div>
+.progress-bar {
+    width: 100%;
+    max-width: 400px;
+    height: 10px;
+    background: #333;
+    border-radius: 5px;
+    overflow: hidden;
+}
 
-        <div class="timer-controls">
-            <div id="timerText">Timer: 00</div>
-            <button onclick="startWorkout()">Start Workout</button>
-            <button onclick="stopWorkout()">Stop</button>
-        </div>
+#progressFill {
+    height: 100%;
+    width: 0%;
+    background: #28a745;
+}
 
-        <audio id="beepSound" src="audio/beep.mp3"></audio>
-    </section>
-
-    <script src="script.js"></script>
-</body>
-</html>
+/* Timer */
+.timer-controls {
+    margin-top: 15px;
+}
