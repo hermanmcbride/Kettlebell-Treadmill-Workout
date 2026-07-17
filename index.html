@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kettlebell + Treadmill Workout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="light">
+    <header>
+        <div class="logo-title">
+            <div class="logo">KB+TM</div>
+            <h1>Kettlebell + Treadmill Workout</h1>
+        </div>
+        <nav>
+            <button onclick="showScreen('home')">Home</button>
+            <button onclick="showScreen('weights')">My Weights</button>
+            <button onclick="showScreen('library')">Exercise Videos</button>
+            <button onclick="showScreen('workout')">Start Workout</button>
+        </nav>
+        <button class="mode-toggle" onclick="toggleMode()">Dark / Light</button>
+    </header>
+
+    <!-- HOME -->
+    <section id="home" class="screen active">
+        <h2>Welcome Jay</h2>
+        <p>Your kettlebell + treadmill workout app is ready.</p>
+    </section>
+
+    <!-- WEIGHTS -->
+    <section id="weights" class="screen">
+        <h2>My Kettlebell Weights</h2>
+        <div class="weight-input">
+            <label>Swings</label>
+            <input id="w_swings" type="number" placeholder="lbs">
+        </div>
+        <div class="weight-input">
+            <label>Goblet Squat</label>
+            <input id="w_goblet" type="number" placeholder="lbs">
+        </div>
+        <div class="weight-input">
+            <label>Rows</label>
+            <input id="w_rows" type="number" placeholder="lbs">
+        </div>
+        <div class="weight-input">
+            <label>High Pulls</label>
+            <input id="w_highpull" type="number" placeholder="lbs">
+        </div>
+        <div class="weight-input">
+            <label>March/Carry</label>
+            <input id="w_march" type="number" placeholder="lbs">
+        </div>
+
+        <button onclick="saveWeights()">Save</button>
+        <p id="saveMsg"></p>
+    </section>
+
+    <!-- EXERCISE LIBRARY -->
+    <section id="library" class="screen">
+        <h2>Exercise Library</h2>
+
+        <div class="video-block">
+            <h3>Kettlebell Swings</h3>
+            <video controls src="videos/swings.mp4"></video>
+        </div>
+
+        <div class="video-block">
+            <h3>Goblet Squat</h3>
+            <video controls src="videos/goblet_squat.mp4"></video>
+        </div>
+
+        <div class="video-block">
+            <h3>Kettlebell Row</h3>
+            <video controls src="videos/row.mp4"></video>
+        </div>
+
+        <div class="video-block">
+            <h3>Kettlebell High Pull</h3>
+            <video controls src="videos/high_pull.mp4"></video>
+        </div>
+
+        <div class="video-block">
+            <h3>Kettlebell March / Carry</h3>
+            <video controls src="videos/march.mp4"></video>
+        </div>
+
+        <div class="video-block">
+            <h3>Dead Bug</h3>
+            <video controls src="videos/dead_bug.mp4"></video>
+        </div>
+
+        <div class="video-block">
+            <h3>Plank</h3>
+            <video controls src="videos/plank.mp4"></video>
+        </div>
+
+        <div class="video-block">
+            <h3>Kettlebell Crunch</h3>
+            <video controls src="videos/crunch.mp4"></video>
+        </div>
+    </section>
+
+    <!-- WORKOUT -->
+    <section id="workout" class="screen">
+        <h2>Workout Flow</h2>
+
+        <div class="progress-wrapper">
+            <div id="progressText">Step 0 / 0</div>
+            <div class="progress-bar">
+                <div id="progressFill"></div>
+            </div>
+        </div>
+
+        <div id="workoutDisplay"></div>
+
+        <div class="timer-controls">
+            <div id="timerText">Timer: 00</div>
+            <button onclick="startWorkout()">Start Workout</button>
+            <button onclick="stopWorkout()">Stop</button>
+        </div>
+
+        <audio id="beepSound">
+            <source src="beep.mp3" type="audio/mpeg">
+        </audio>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
