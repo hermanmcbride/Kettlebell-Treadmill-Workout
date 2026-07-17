@@ -1,7 +1,7 @@
 let workoutFlow = [];
 let currentStep = 0;
 let timerId = null;
-let stepDuration = 30; // seconds per step for demo
+let stepDuration = 30;
 let remaining = 0;
 
 function showScreen(id) {
@@ -9,39 +9,27 @@ function showScreen(id) {
     document.getElementById(id).classList.add('active');
 }
 
-function toggleMode() {
-    const body = document.body;
-    if (body.classList.contains('light')) {
-        body.classList.remove('light');
-        body.classList.add('dark');
-    } else {
-        body.classList.remove('dark');
-        body.classList.add('light');
-    }
-}
-
 function saveWeights() {
     const weights = {
-        swings: document.getElementById('w_swings').value,
-        goblet: document.getElementById('w_goblet').value,
-        rows: document.getElementById('w_rows').value,
-        highpull: document.getElementById('w_highpull').value,
-        march: document.getElementById('w_march').value
+        swings: w_swings.value,
+        goblet: w_goblet.value,
+        rows: w_rows.value,
+        highpull: w_highpull.value,
+        march: w_march.value
     };
-
     localStorage.setItem('kbWeights', JSON.stringify(weights));
-    document.getElementById('saveMsg').innerText = "Saved!";
+    saveMsg.innerText = "Saved!";
 }
 
 function loadWeights() {
     const data = localStorage.getItem('kbWeights');
     if (!data) return;
     const w = JSON.parse(data);
-    document.getElementById('w_swings').value = w.swings || "";
-    document.getElementById('w_goblet').value = w.goblet || "";
-    document.getElementById('w_rows').value = w.rows || "";
-    document.getElementById('w_highpull').value = w.highpull || "";
-    document.getElementById('w_march').value = w.march || "";
+    w_swings.value = w.swings || "";
+    w_goblet.value = w.goblet || "";
+    w_rows.value = w.rows || "";
+    w_highpull.value = w.highpull || "";
+    w_march.value = w.march || "";
 }
 
 function initFlow() {
@@ -65,16 +53,12 @@ function initFlow() {
 
 function updateProgress() {
     const total = workoutFlow.length;
-    const text = document.getElementById('progressText');
-    const fill = document.getElementById('progressFill');
-    text.innerText = `Step ${currentStep} / ${total}`;
-    const percent = total === 0 ? 0 : (currentStep / total) * 100;
-    fill.style.width = percent + "%";
+    progressText.innerText = `Step ${currentStep} / ${total}`;
+    progressFill.style.width = (currentStep / total) * 100 + "%";
 }
 
 function playBeep() {
-    const beep = document.getElementById('beepSound');
-    if (beep) beep.play().catch(() => {});
+    beepSound.play().catch(() => {});
 }
 
 function startWorkout() {
@@ -85,13 +69,13 @@ function startWorkout() {
 
 function nextStep() {
     if (currentStep >= workoutFlow.length) {
-        document.getElementById('workoutDisplay').innerText = "Workout Complete!";
+        workoutDisplay.innerText = "Workout Complete!";
         updateProgress();
         stopTimer();
         return;
     }
 
-    document.getElementById('workoutDisplay').innerText = workoutFlow[currentStep];
+    workoutDisplay.innerText = workoutFlow[currentStep];
     currentStep++;
     updateProgress();
     startTimer(stepDuration, nextStep);
@@ -107,30 +91,26 @@ function startTimer(seconds, callback) {
         if (remaining <= 0) {
             playBeep();
             stopTimer();
-            if (callback) callback();
+            callback();
         }
     }, 1000);
 }
 
 function stopTimer() {
-    if (timerId) {
-        clearInterval(timerId);
-        timerId = null;
-    }
+    if (timerId) clearInterval(timerId);
+    timerId = null;
 }
 
 function stopWorkout() {
     stopTimer();
-    document.getElementById('workoutDisplay').innerText = "Workout stopped.";
+    workoutDisplay.innerText = "Workout stopped.";
 }
 
 function updateTimerText() {
-    document.getElementById('timerText').innerText = `Timer: ${remaining.toString().padStart(2, '0')}`;
+    timerText.innerText = `Timer: ${remaining.toString().padStart(2, '0')}`;
 }
 
-// init
 window.onload = () => {
-    document.body.classList.add('light');
     loadWeights();
     initFlow();
 };
