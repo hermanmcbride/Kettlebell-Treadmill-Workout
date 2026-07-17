@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Light / Dark */
+body.light {
+    background: #f4f4f4;
+    color: #111;
+}
+
+body.dark {
+    background: #111;
+    color: #fff;
+}
+
+header {
+    background: #222;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+.logo-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #28a745;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+nav button, .mode-toggle {
+    margin: 5px;
+    padding: 10px 15px;
+    background: #444;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.screen {
+    display: none;
+    padding: 20px;
+}
+
+.screen.active {
+    display: block;
+}
+
+.weight-input {
+    margin-bottom: 15px;
+}
+
+input {
+    padding: 8px;
+    width: 80px;
+}
+
+video {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+button {
+    background: #28a745;
+    padding: 10px 20px;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Progress bar */
+.progress-wrapper {
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    width: 100%;
+    max-width: 400px;
+    height: 10px;
+    background: #333;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#progressFill {
+    height: 100%;
+    width: 0%;
+    background: #28a745;
+}
+
+/* Timer */
+.timer-controls {
+    margin-top: 15px;
+}
