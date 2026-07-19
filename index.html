@@ -39,65 +39,65 @@
     </section>
 
     <!-- EXERCISE LIBRARY -->
-   <section id="library" class="screen">
-    <h2>Exercise Library</h2>
+    <section id="library" class="screen">
+        <h2>Exercise Library</h2>
 
-    <div class="video-block">
-        <h3>Kettlebell Swings</h3>
-        <iframe width="400" height="225"
-            src="https://www.youtube.com/embed/2JdsHkHqOa8"
-            frameborder="0" allowfullscreen></iframe>
-    </div>
+        <div class="video-block">
+            <h3>Kettlebell Swings</h3>
+            <iframe width="400" height="225"
+                src="https://www.youtube.com/embed/2JdsHkHqOa8"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
 
-    <div class="video-block">
-        <h3>Goblet Squat</h3>
-        <iframe width="400" height="225"
-            src="https://www.youtube.com/embed/6xwG3nQ2E7E"
-            frameborder="0" allowfullscreen></iframe>
-    </div>
+        <div class="video-block">
+            <h3>Goblet Squat</h3>
+            <iframe width="400" height="225"
+                src="https://www.youtube.com/embed/6xwG3nQ2E7E"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
 
-    <div class="video-block">
-        <h3>Kettlebell Row</h3>
-        <iframe width="400" height="225"
-            src="https://www.youtube.com/embed/0aJxkYtG1qE"
-            frameborder="0" allowfullscreen></iframe>
-    </div>
+        <div class="video-block">
+            <h3>Kettlebell Row</h3>
+            <iframe width="400" height="225"
+                src="https://www.youtube.com/embed/0aJxkYtG1qE"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
 
-    <div class="video-block">
-        <h3>Kettlebell High Pull</h3>
-        <iframe width="400" height="225"
-            src="https://www.youtube.com/embed/6z7xZQ2Ew9k"
-            frameborder="0" allowfullscreen></iframe>
-    </div>
+        <div class="video-block">
+            <h3>Kettlebell High Pull</h3>
+            <iframe width="400" height="225"
+                src="https://www.youtube.com/embed/6z7xZQ2Ew9k"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
 
-    <div class="video-block">
-        <h3>Kettlebell March / Carry</h3>
-        <iframe width="400" height="225"
-            src="https://www.youtube.com/embed/3m0ZQ8Q7z0E"
-            frameborder="0" allowfullscreen></iframe>
-    </div>
+        <div class="video-block">
+            <h3>Kettlebell March / Carry</h3>
+            <iframe width="400" height="225"
+                src="https://www.youtube.com/embed/3m0ZQ8Q7z0E"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
 
-    <div class="video-block">
-        <h3>Dead Bug</h3>
-        <iframe width="400" height="225"
-            src="https://www.youtube.com/embed/2pLT-olgUJs"
-            frameborder="0" allowfullscreen></iframe>
-    </div>
+        <div class="video-block">
+            <h3>Dead Bug</h3>
+            <iframe width="400" height="225"
+                src="https://www.youtube.com/embed/2pLT-olgUJs"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
 
-    <div class="video-block">
-        <h3>Plank</h3>
-        <iframe width="400" height="225"
-            src="https://www.youtube.com/embed/pSHjTRCQxIw"
-            frameborder="0" allowfullscreen></iframe>
-    </div>
+        <div class="video-block">
+            <h3>Plank</h3>
+            <iframe width="400" height="225"
+                src="https://www.youtube.com/embed/pSHjTRCQxIw"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
 
-    <div class="video-block">
-        <h3>Kettlebell Crunch</h3>
-        <iframe width="400" height="225"
-            src="https://www.youtube.com/embed/1J4hU6Y4GfE"
-            frameborder="0" allowfullscreen></iframe>
-    </div>
-</section>
+        <div class="video-block">
+            <h3>Kettlebell Crunch</h3>
+            <iframe width="400" height="225"
+                src="https://www.youtube.com/embed/1J4hU6Y4GfE"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
 
     <!-- WORKOUT -->
     <section id="workout" class="screen">
@@ -108,7 +108,8 @@
             <div class="progress-bar"><div id="progressFill"></div></div>
         </div>
 
-        <div id="workoutDisplay"></div>
+        <!-- REQUIRED: This was missing in your real HTML -->
+        <div id="workoutDisplay" class="workout-step"></div>
 
         <div class="timer-controls">
             <div id="timerText">Timer: 00</div>
@@ -117,6 +118,7 @@
             <button onclick="stopWorkout()">Stop</button>
         </div>
 
+        <!-- Keep your beep file even if unused -->
         <audio id="beepSound" src="audio/beep.mp3"></audio>
     </section>
 
