@@ -1,0 +1,128 @@
+<p style="display:none;">force_rebuild_2026</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kettlebell + Treadmill Workout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Kettlebell + Treadmill Workout</h1>
+        <nav>
+            <button onclick="showScreen('home')">Home</button>
+            <button onclick="showScreen('weights')">My Weights</button>
+            <button onclick="showScreen('library')">Exercise Videos</button>
+            <button onclick="showScreen('workout')">Start Workout</button>
+        </nav>
+    </header>
+
+    <!-- HOME -->
+    <section id="home" class="screen active">
+        <h2>Welcome Jay</h2>
+        <p>Your kettlebell + treadmill workout app is ready.</p>
+    </section>
+
+    <!-- WEIGHTS -->
+    <section id="weights" class="screen">
+        <h2>My Kettlebell Weights</h2>
+
+        <div class="weight-input"><label>Swings</label><input id="w_swings" type="number"></div>
+        <div class="weight-input"><label>Goblet Squat</label><input id="w_goblet" type="number"></div>
+        <div class="weight-input"><label>Rows</label><input id="w_rows" type="number"></div>
+        <div class="weight-input"><label>High Pulls</label><input id="w_highpull" type="number"></div>
+        <div class="weight-input"><label>March/Carry</label><input id="w_march" type="number"></div>
+
+        <button onclick="saveWeights()">Save</button>
+        <p id="saveMsg"></p>
+    </section>
+
+    <!-- EXERCISE LIBRARY -->
+    <section id="library" class="screen">
+        <h2>Exercise Library</h2>
+
+        <div class="video-block">
+            <h3>Kettlebell Swings</h3>
+            <iframe width="400" height="225"
+                src="https://www.youtube.com/embed/2JdsHkHqOa8"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="video-block">
+            <h3>Goblet Squat</h3>
+            <iframe width="400" height="225"
+                src="https://www.youtube.com/embed/6xwG3nQ2E7E"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="video-block">
+            <h3>Kettlebell Row</h3>
+            <iframe width="400" height="225"
+                src="https://www.youtube.com/embed/0aJxkYtG1qE"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="video-block">
+            <h3>Kettlebell High Pull</h3>
+            <iframe width="400" height="225"
+                src="https://www.youtube.com/embed/6z7xZQ2Ew9k"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="video-block">
+            <h3>Kettlebell March / Carry</h3>
+            <iframe width="400" height="225"
+                src="https://www.youtube.com/embed/3m0ZQ8Q7z0E"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="video-block">
+            <h3>Dead Bug</h3>
+            <iframe width="400" height="225"
+                src="https://www.youtube.com/embed/2pLT-olgUJs"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="video-block">
+            <h3>Plank</h3>
+            <iframe width="400" height="225"
+                src="https://www.youtube.com/embed/pSHjTRCQxIw"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="video-block">
+            <h3>Kettlebell Crunch</h3>
+            <iframe width="400" height="225"
+                src="https://www.youtube.com/embed/1J4hU6Y4GfE"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- WORKOUT -->
+    <section id="workout" class="screen">
+        <h2>Workout Flow</h2>
+
+        <div class="progress-wrapper">
+            <div id="progressText">Step 0 / 0</div>
+            <div class="progress-bar"><div id="progressFill"></div></div>
+        </div>
+
+        <!-- REQUIRED: This was missing in your real HTML -->
+        <div id="workoutDisplay" class="workout-step"></div>
+
+        <div class="timer-controls">
+            <div id="timerText">Timer: 00</div>
+            <button onclick="startWorkout()">Start Workout</button>
+            <button onclick="nextStep()">Next Step</button>
+            <button onclick="stopWorkout()">Stop</button>
+        </div>
+
+        <!-- Keep your beep file even if unused -->
+        <audio id="beepSound" src="audio/beep.mp3"></audio>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
